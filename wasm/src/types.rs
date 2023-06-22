@@ -15,26 +15,14 @@
 // along with the Aleo SDK library. If not, see <https://www.gnu.org/licenses/>.
 
 pub use aleo_rust::{
-    Address,
-    Ciphertext,
-    Encryptor,
-    Identifier,
-    Plaintext,
-    PrivateKey,
-    ProgramID,
-    Record,
-    Signature,
-    Testnet3,
-    ViewKey,
+    Address, Ciphertext, Encryptor, Identifier, Plaintext, PrivateKey, ProgramID, Record, Signature, Testnet3, ViewKey,
 };
 use snarkvm_circuit_network::AleoV0;
 use snarkvm_console::program::{ProgramOwner, Response, TransactionLeaf};
 use snarkvm_synthesizer::{
     helpers::memory::BlockMemory,
     snark::{ProvingKey, VerifyingKey},
-    Process,
-    Program,
-    Transaction,
+    Process, Program, Transaction,
 };
 
 pub use snarkvm_wasm::{network::Environment, FromBytes, PrimeField, ToBytes};

@@ -1,0 +1,89 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "Aleo-debug.module": ["<Aleo-debug.module>"]
+  "AleoPackageTests-debug.test": ["<AleoPackageTests-debug.test>"]
+  "AleoTests-debug.module": ["<AleoTests-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<Aleo-debug.module>"]
+  "test": ["<Aleo-debug.module>","<AleoPackageTests-debug.test>","<AleoTests-debug.module>"]
+default: "main"
+nodes:
+  "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Sources/Aleo/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/libaleo_swift.a":
+    tool: copy-tool
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/macos-arm64_x86_64/libaleo_swift.a"]
+    outputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/libaleo_swift.a"]
+    description: "Copying /Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/macos-arm64_x86_64/libaleo_swift.a"
+
+  "<Aleo-debug.module>":
+    tool: phony
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/SwiftBridgeCore.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/aleo-swift.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.swiftmodule"]
+    outputs: ["<Aleo-debug.module>"]
+
+  "<AleoPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoPackageTests.xctest/Contents/MacOS/AleoPackageTests"]
+    outputs: ["<AleoPackageTests-debug.test>"]
+
+  "<AleoTests-debug.module>":
+    tool: phony
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/AddressTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyCiphertextTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.swiftmodule"]
+    outputs: ["<AleoTests-debug.module>"]
+
+  "C.Aleo-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Sources/Aleo/SwiftBridgeCore.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Sources/Aleo/aleo-swift.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/libaleo_swift.a"]
+    outputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/SwiftBridgeCore.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/aleo-swift.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.swiftmodule"]
+    executable: "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "Aleo"
+    module-output-path: "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.swiftmodule"
+    import-paths: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build"
+    objects: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/SwiftBridgeCore.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/aleo-swift.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.13","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-g","-j12","-DSWIFT_PACKAGE","-DDEBUG","-I","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/macos-arm64_x86_64/Headers","-Xcc","-I","-Xcc","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/macos-arm64_x86_64/Headers","-module-cache-path","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-F","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug","-emit-objc-header","-emit-objc-header-path","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/Aleo-Swift.h","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Xcc","-isysroot","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"]
+    sources: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Sources/Aleo/SwiftBridgeCore.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Sources/Aleo/aleo-swift.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 12
+
+  "C.AleoPackageTests-debug.test":
+    tool: shell
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/SwiftBridgeCore.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/aleo-swift.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/AddressTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyCiphertextTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyTests.swift.o"]
+    outputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoPackageTests.xctest/Contents/MacOS/AleoPackageTests"]
+    description: "Linking ./.build/x86_64-apple-macosx/debug/AleoPackageTests.xctest/Contents/MacOS/AleoPackageTests"
+    args: ["/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-laleo_swift","-F","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug","-L","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug","-o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoPackageTests.xctest/Contents/MacOS/AleoPackageTests","-module-name","AleoPackageTests","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoPackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.5/macosx","-target","x86_64-apple-macosx13.0","-Xlinker","-add_ast_path","-Xlinker","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.swiftmodule","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Xcc","-isysroot","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"]
+
+  "C.AleoTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/AddressTests.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/PrivateKeyCiphertextTests.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/PrivateKeyTests.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.swiftmodule","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/libaleo_swift.a"]
+    outputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/AddressTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyCiphertextTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.swiftmodule"]
+    executable: "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "AleoTests"
+    module-output-path: "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.swiftmodule"
+    import-paths: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build"
+    objects: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/AddressTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyCiphertextTests.swift.o","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/AleoTests.build/PrivateKeyTests.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx13.0","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-g","-j12","-DSWIFT_PACKAGE","-DDEBUG","-I","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/macos-arm64_x86_64/Headers","-Xcc","-I","-Xcc","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/macos-arm64_x86_64/Headers","-module-cache-path","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-F","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Xcc","-isysroot","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-sdk","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk","-F","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"]
+    sources: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/AddressTests.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/PrivateKeyCiphertextTests.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/PrivateKeyTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 12
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework/","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Sources/Aleo/","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Tests/AleoTests/","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Package.swift","/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

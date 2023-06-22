@@ -1,0 +1,4 @@
+module Aleo {
+    header "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/.build/x86_64-apple-macosx/debug/Aleo.build/Aleo-Swift.h"
+    requires objc
+}

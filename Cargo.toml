@@ -1,7 +1,7 @@
 [package]
 name = "aleo"
 version = "0.4.4"
-authors = [ "The Aleo Team <hello@aleo.org>" ]
+authors = ["The Aleo Team <hello@aleo.org>"]
 description = "Aleo"
 homepage = "https://aleo.org"
 repository = "https://github.com/AleoHQ/sdk"
@@ -10,15 +10,15 @@ keywords = [
   "cryptography",
   "blockchain",
   "decentralized",
-  "zero-knowledge"
+  "zero-knowledge",
 ]
-categories = [ "cryptography::cryptocurrencies" ]
-include = [ "Cargo.toml", "cli", "README.md", "LICENSE.md" ]
+categories = ["cryptography::cryptocurrencies"]
+include = ["Cargo.toml", "cli", "README.md", "LICENSE.md"]
 license = "GPL-3.0"
 edition = "2021"
 
 [workspace]
-members = [ "rust", "wasm", "rust/develop"]
+members = ["rust", "wasm", "rust/develop", "swift"]
 
 [workspace.dependencies.aleo-rust]
 version = "0.4.4"
@@ -51,10 +51,10 @@ name = "aleo"
 path = "cli/main.rs"
 
 [features]
-default = [ ]
+default = []
 
 [dependencies.aleo-rust]
-features = [ "default" ]
+features = ["default"]
 workspace = true
 
 [dependencies.anyhow]
@@ -62,7 +62,7 @@ version = "1.0"
 
 [workspace.dependencies.clap]
 version = "4.3.2"
-features = [ "derive", "string" ]
+features = ["derive", "string"]
 
 [dependencies.clap]
 workspace = true
@@ -89,7 +89,7 @@ version = "7.2.0"
 
 [dependencies.self_update]
 version = "0.37"
-features = [ "default", "archive-zip", "archive-tar"]
+features = ["default", "archive-zip", "archive-tar"]
 
 [dependencies.serde]
 version = "1"
@@ -100,11 +100,11 @@ version = "1"
 [dependencies.snarkvm]
 workspace = true
 features = [
-"aleo-cli",
-"circuit",
-"console",
-"snarkvm-synthesizer",
-"snarkvm-utilities",
+  "aleo-cli",
+  "circuit",
+  "console",
+  "snarkvm-synthesizer",
+  "snarkvm-utilities",
 ]
 
 [dependencies.thiserror]
@@ -112,7 +112,7 @@ version = "1.0"
 
 [dependencies.tokio]
 version = "1.28"
-features = [ "rt" ]
+features = ["rt"]
 
 [dependencies.warp]
 version = "0.3"

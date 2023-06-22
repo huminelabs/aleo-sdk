@@ -1,0 +1,24 @@
+{
+  "object" : {
+    "artifacts" : [
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "sdk",
+          "kind" : "root",
+          "location" : "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk",
+          "name" : "sdk"
+        },
+        "path" : "/Users/nafehshoaib/humine/Blockchain/Aleo/rust-repos/sdk/RustXcframework.xcframework",
+        "source" : {
+          "type" : "local"
+        },
+        "targetName" : "RustXcframework"
+      }
+    ],
+    "dependencies" : [
+
+    ]
+  },
+  "version" : 6
+}
